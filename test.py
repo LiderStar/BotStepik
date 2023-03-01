@@ -1,9 +1,5 @@
-import re
-num = {}
-result = []
-st = "fjghfjklh g8/ 89 47 fjdafio fiooii3245 jhjkfghf90gak k98,343.989"
-for i in re.split("\D", st.strip()):
-    if i.isdigit():
-        result.append(int(i))
-num["result"] = result        
-print(num)
+d = {"ADMIN_IDS": [475164655, 475164655]}
+
+admin_ids=list(map(int, d.get('ADMIN_IDS')))
+
+print(admin_ids)

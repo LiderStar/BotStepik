@@ -16,7 +16,7 @@ load_dotenv()
 bot: Bot = Bot(token=os.environ.get('bot_token'))
 dp: Dispatcher = Dispatcher()
 
-admin_ids: List[int] = [475164655]
+admin_ids: List[int] = []
 
 # Собственный фильтр, проверяющий юзера на админа
 class IsAdmin(BaseFilter):
@@ -31,6 +31,7 @@ class IsAdmin(BaseFilter):
 # Этот хэндлер будет срабатывать, если апдейт от админа
 @dp.message(IsAdmin(admin_ids))
 async def answer_if_admins_update(message: Message):
+    print(message.from_user.id)
     await message.answer(text='Вы админ')
 
 
@@ -62,7 +63,7 @@ class NumbersInMessage(BaseFilter):
 @dp.message(Text(startswith='найди числа', ignore_case=True), NumbersInMessage())
 # Помимо объекта типа Message, принимаем в хэндлер список чисел из фильтра
 async def process_if_numbers(message: Message, numbers: list[int]):
-    print(message.from_user.id)
+
     await message.answer(
             text=f'Нашел: {str(", ".join(str(num) for num in numbers))}')
 

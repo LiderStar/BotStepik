@@ -2,7 +2,7 @@ import requests
 import time
 
 API_URL: str = "https://api.telegram.org/bot"
-BOT_TOKEN: str = "5712216756:AAEaUmbg8zYiZj9Fue_HL0yCdBwfJKv5He4"
+BOT_TOKEN: str = 
 API_ANIMAL: str = "https://random.dog/woof.json"
 TEXT: str = "I am Happy"
 MAX_COUNTER: int = 100
