@@ -3,8 +3,8 @@ import logging
 from aiogram import Bot, Dispatcher
 from aiogram.types import BotCommand
 
-from StonePaperScissors.handlers import other_handlers, user_handlers
-from StonePaperScissors.keyboards.set_menu import set_main_menu
+from handlers import other_handlers, user_handlers
+from keyboards.set_menu import set_main_menu
 from config_data.config import config
 
 # инициализируем логгер

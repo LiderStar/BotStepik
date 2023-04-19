@@ -1,6 +1,6 @@
 import random
 
-from StonePaperScissors.lexicon.lexicon import LEXICON
+from lexicon.lexicon import LEXICON
 
 
 # Функция, возвращающая случайный выбор бота в игре

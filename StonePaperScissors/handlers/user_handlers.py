@@ -1,9 +1,9 @@
 from aiogram import Router
 from aiogram.filters import Command, CommandStart, Text
 from aiogram.types import Message
-from StonePaperScissors.keyboards.keyboards import gm_kb, yes_no_kb
-from StonePaperScissors.lexicon.lexicon import LEXICON
-from StonePaperScissors.services.services import get_bot_choice, get_winner
+from keyboards.keyboards import gm_kb, yes_no_kb
+from lexicon.lexicon import LEXICON
+from services.services import get_bot_choice, get_winner
 
 router: Router = Router()
 
