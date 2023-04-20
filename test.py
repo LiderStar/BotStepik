@@ -1,3 +1,4 @@
+import os, spider
 import os, requests
 
 for item, key in os.environ.items():
