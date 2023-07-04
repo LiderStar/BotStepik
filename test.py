@@ -6,22 +6,23 @@ from dotenv import load_dotenv
 from aiogram import F
 
 
-
 load_dotenv()
 
-bot: Bot=Bot(token = os.environ.get('BOT_TOKEN'))
-dp: Dispatcher=Dispatcher()
+bot: Bot = Bot(token=os.environ.get("BOT_TOKEN"))
+dp: Dispatcher = Dispatcher()
 
 
-@dp.message(Command(commands=['start']))
+@dp.message(Command(commands=["start"]))
 async def start_message(message: Message):
     await message.answer("Hello")
 
-@dp.message(Command(commands=['help']))
+
+@dp.message(Command(commands=["help"]))
 async def help_message(message: Message):
     await message.answer("Can I help you???")
 
-@dp.message(F.photo)   # F.audio F.voice F.document
+
+@dp.message(F.photo)  # F.audio F.voice F.document
 async def photo_message(message: Message):
     print(message)
     await message.reply_photo(message.photo[-1].file_id)
