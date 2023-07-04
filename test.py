@@ -26,9 +26,13 @@ async def photo_message(message: Message):
     print(message)
     await message.reply_photo(message.photo[-1].file_id)
 
+
 @dp.message()
 async def else_message(message: Message):
-    await message.answer("Nice to meet you")
+    try:
+        await message.send_copy(chat_id=message.chat.id)
+    except TypeError:
+        await message.reply(text = "Данный тип не потдерживается")
 
 
 if __name__ == "__main__":
