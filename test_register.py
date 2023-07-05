@@ -8,14 +8,17 @@ from aiogram import F
 
 load_dotenv()
 
-bot: Bot=Bot(token = os.environ.get('BOT_TOKEN'))
-dp: Dispatcher=Dispatcher()
+bot: Bot = Bot(token=os.environ.get("BOT_TOKEN"))
+dp: Dispatcher = Dispatcher()
+
 
 async def start_message(message: Message):
     await message.answer("Hello")
 
+
 async def help_message(message: Message):
     await message.answer("Can I help you???")
+
 
 async def photo_message(message: Message):
     print(message)
@@ -26,15 +29,16 @@ async def audio_message(message: Message):
     print(message)
     await message.answer_voice(message.voice.file_id)
 
+
 async def else_message(message: Message):
     try:
         await message.send_copy(chat_id=message.chat.id)
     except TypeError:
-        await message.reply(text = "Данный тип не потдерживается")
+        await message.reply(text="Данный тип не потдерживается")
 
 
-dp.message.register(start_message, Command(commands=['start']))
-dp.message.register(help_message, Command(commands=['help']))
+dp.message.register(start_message, Command(commands=["start"]))
+dp.message.register(help_message, Command(commands=["help"]))
 dp.message.register(photo_message, F.photo)  # F.audio F.voice F.document
 dp.message.register(audio_message, F.voice)  # F.audio F.voice F.document
 dp.message.register(else_message)
