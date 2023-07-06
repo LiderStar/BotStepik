@@ -110,9 +110,9 @@ async def check_num(message: Message):
             user_status[message.from_user.id]["attemps"] -= 1
         elif int(message.text) < user_status[message.from_user.id]["secret_number"]:
             await message.answer("Мое число больше")
-            user_status[message.from_user.id]["attempts"] -= 1
+            user_status[message.from_user.id]["attemps"] -= 1
 
-        if user_status["attemps"] == 0:
+        if user_status[message.from_user.id]["attemps"] == 0:
             await message.answer(
                 f"К сожалению, у вас больше не осталось "
                 f"попыток. Вы проиграли :(\n\nМое число "
